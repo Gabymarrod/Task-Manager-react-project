@@ -1,5 +1,7 @@
-//import logo from './logo.svg';
+import React from 'react' //import logo from './logo.svg';
 import './App.css';
+import TaskList from './components/task/TaskList';
+
 
 function App() {
   return (
@@ -8,7 +10,7 @@ function App() {
         <h1> Task Manager</h1>
       </header>
       <div>
-        <button className="btn btn-lg">Boton</button>
+        <TaskList/>
       </div>
     </div>
   );
