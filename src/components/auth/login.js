@@ -12,9 +12,8 @@ export default function Login(){
     function loginPass(user){
         setLoggedIn(true)
         localStorage.setItem("loggedIn",JSON.stringify(loggedIn))
-        console.log(user);
-        //localStorage.setItem("userLogged", user)
     }
+
     function loginFail(){
         console.log("Enviar mensaje de error al loguearse");
     }
@@ -29,11 +28,10 @@ export default function Login(){
 
     function handleName(e){
         setName(e.target.value)
-        console.log(name)
     }
+
     function handlePass(e){
         setPass(e.target.value)
-        console.log(pass)
     }
 
 
@@ -64,25 +62,22 @@ export default function Login(){
     return (
         <div>
             <nav className="navbar navbar-light bg-light">
-  <div className="container-fluid">
-    <a className="navbar-brand">Navbar</a>
-    {(!loggedIn)?
-            
-    <form className="d-flex" onSubmit={login} >
-      <input id="name" className="form-control me-2" type="text" placeholder="user" aria-label="user" value={name} onChange={handleName} />
-      <input id="pass" className="form-control me-2" type="password" placeholder="pass" aria-label="password" value={pass} onChange={handlePass} />
-      <button className="btn btn-outline-success" type="submit">Login</button>
-    </form>
-
-
-:
-<span><b>{ name }: </b>
-<button className="btn btn-outline-success" type="submit" onClick={logout}>Logout</button>      
-</span>      
-}
-  </div>
-</nav>
-            
+                <div className="container-fluid">
+                    <a className="navbar-brand">Navbar</a>
+                    {(!loggedIn)?
+                
+                    <form className="d-flex" onSubmit={login} >
+                        <input id="name" className="form-control me-2" type="text" placeholder="user" aria-label="user" onChange={handleName} />
+                        <input id="pass" className="form-control me-2" type="password" placeholder="pass" aria-label="password" onChange={handlePass} />
+                        <button className="btn btn-outline-success" type="submit">Login</button>
+                    </form>
+                    :
+                    <span><b>{ name }: </b>
+                    <button className="btn btn-outline-success" type="submit" onClick={logout}>Logout</button>      
+                    </span>
+                    }      
+                </div>
+            </nav>
         </div>
     )
 
