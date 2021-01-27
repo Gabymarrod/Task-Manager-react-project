@@ -1,12 +1,9 @@
 import React from 'react' //import logo from './logo.svg';
 import './App.css';
 import TaskList from './components/task/TaskList';
+import Login from './components/auth/login';
 
 
-
-
-//import './App.css';
-//import Navbar from './components/navigation/navbar';
 
 export default function App() {
 
@@ -21,11 +18,9 @@ export default function App() {
   ]
 
   //componentDidMount() {
-
     useEffect(() => {
       loadData()
     }, []);
-    
   //}
 
   function loadData(){
@@ -58,13 +53,13 @@ export default function App() {
 // function App() {
   return (
     <div className="">
+      <Login />
       <header className="">
         <h1> Task Manager</h1>
       </header>
       <div>
         <TaskList/>
       </div>
-      <Login />
     </div>
   )
 }
