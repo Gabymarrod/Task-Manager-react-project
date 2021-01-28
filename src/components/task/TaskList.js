@@ -1,12 +1,18 @@
 import React, {useContext} from 'react'
-import TaskListContextProvider from '../context/TaskListContext'
-import Form from './Form'
+import TaskListContextProvider, { TaskListContext } from '../context/TaskListContext'
+import Task from './Task'
+
+
 const TaskList = () => {
-    //for use the context hook
+    const {tasks} = useContext(TaskListContext);
     
-    return ( 
-    <div><TaskListContextProvider />
-        </div>);
+    return ( <div>
+        <ul className="list">
+            {tasks.map((tasks) => {
+                return <Task task={tasks} key={tasks.id}/>;
+            })}
+        </ul>
+    </div>);
     
 };
 

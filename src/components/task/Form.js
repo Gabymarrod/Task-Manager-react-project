@@ -1,23 +1,40 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
+import {TaskListContext} from '../context/TaskListContext'
 
 const Form = () => {
-    return( 
-    <li className= "list-item">
-        <span>Description</span>
-        <span>Status</span>
-        <span>Date</span>
-        <span>Hour</span>
-        <span>Estimated hours</span>
-        <span>Paused</span>
-        <div>
-            <button className= "btn-delete task-btn">
-                <i className= "fas fa-trash-alt"></i>
-            </button>
-            <button className= "btn-edit task-btn">
-                <i className= "fas fa-pen"></i>
-            </button>
-        </div>
-    </li>
+    const { addTask } = useContext(TaskListContext);
+
+    const [description, setDescription] = useState('');
+
+    const handleChange = e =>{
+        setDescription(e.target.value);
+    };
+
+    //prevent default submit
+    const handleSubmit = e => {
+        e.preventDefault();
+        addTask(description);
+        setDescription("");
+    };
+
+    return(
+        <form onSubmit={handleSubmit} className="form">
+            <input
+                onChange={handleChange}
+                value={description}
+                type="text" 
+                className="task-input"
+                placeholder="Add Task..."
+                required
+            />
+            <div className="buttons">
+                <button type="submit" className="btn 
+                add-task-btn">Add Task</button>
+                <button className="btn 
+                clear-btn">Clear All</button>
+            </div>
+        </form>
+
     )
 }
 
