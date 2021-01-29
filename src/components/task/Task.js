@@ -1,8 +1,9 @@
 import React from 'react'
 
 const Task =({task}) => {
+    console.log(task)
     return (
-        <li className= "list-item">
+        <li className= "list-item" key={task.id}>
             <span>{task.description}</span>
             <span>Status</span>
                 

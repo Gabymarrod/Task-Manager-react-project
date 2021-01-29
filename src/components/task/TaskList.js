@@ -8,8 +8,8 @@ const TaskList = () => {
     
     return ( <div>
         <ul className="list">
-            {tasks.map((tasks) => {
-                return <Task task={tasks} key={tasks.id}/>;
+            {tasks.map((task) => {
+                return <Task task={task} key={task.id}/>;
             })}
         </ul>
     </div>);
