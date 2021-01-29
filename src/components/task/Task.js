@@ -1,17 +1,33 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {TaskListContext} from '../context/TaskListContext'
+
 
 const Task =({task}) => {
+     const {removeTask} = useContext
+     (TaskListContext)
+
     return (
         <li className= "list-item">
             <span>{task.description}</span>
-            <span>Status</span>
+            <span>{task.status}</span>
                 
                 <div>
-                    <button className= "btn-delete task-btn">
+                    <button  onClick= {() => removeTask(task.id)}
+                             className= "btn-delete task-btn"
+                             >
                         <i className= "fas fa-trash-alt"></i>
                     </button>
                     <button className= "btn-edit task-btn">
                         <i className= "fas fa-pen"></i>
+                    </button>
+                    <button className= "btn-start task-btn">
+                        <i className= "fas fa-play"></i>
+                    </button>
+                    <button className= "btn-pause task-btn">
+                        <i className= "fas fa-pause"></i>
+                    </button>
+                    <button className= "btn-done task-btn">
+                        <i className= "fas fa-check-circle"></i>
                     </button>
                 </div>
         </li>

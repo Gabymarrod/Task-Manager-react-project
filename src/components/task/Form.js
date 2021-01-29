@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import {TaskListContext} from '../context/TaskListContext'
 
 const Form = () => {
-    const { addTask } = useContext(TaskListContext);
+    const { addTask, clearList } = useContext(TaskListContext);
 
     const [description, setDescription] = useState('');
 
@@ -30,7 +30,7 @@ const Form = () => {
             <div className="buttons">
                 <button type="submit" className="btn 
                 add-task-btn">Add Task</button>
-                <button className="btn 
+                <button onClick={clearList} className="btn 
                 clear-btn">Clear All</button>
             </div>
         </form>
