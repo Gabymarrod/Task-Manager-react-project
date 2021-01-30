@@ -1,19 +1,19 @@
-import React, {createContext, useState} from 
+import React, {createContext, useEffect, useState} from 
 'react'
 
 
 export const TaskListContext = createContext()
 
 const TaskListContextProvider = props => {
-  const [tasks,setTasks] = useState([
-      {description:'Read the classes material', status:'started', id:1, duration:0, pausedTime:0},
-      {description:'Watch some videos related to the topic', status:' not started', id:2, duration:0, pausedTime:0},
-      {description:'Search for some extra info', status:' not started', id:3, duration:0, pausedTime:0},
-      {description:'Write some Code', status:'not started', id:4, duration:0, pausedTime:0},
-    ]);
+  const initialState = JSON.parse
+  (localStorage.getItem("tasks")) || [];
 
-    //edit task function
-    const[editItem, setEditItem] = useState(null)
+  const[tasks, setTasks] = useState(initialState);
+  const[editItem, setEditItem] = useState(null);
+
+  useEffect(() => {
+      localStorage.setItem("tasks",JSON.stringify(tasks));
+  }, [tasks]);
 
     //add task function
     const addTask = (description) => {

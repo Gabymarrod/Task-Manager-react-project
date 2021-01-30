@@ -7,8 +7,8 @@ const Task =({task}) => {
         
     return (
         <li className= "list-item" key={task.id}>
-            <span>{task.description}</span>
-            <span>{task.status}</span>
+            <span>{task.description}&nbsp;</span>
+            <span><i>{task.status}</i></span>
                 
                 <div>
                     <button onClick= {() => removeTask(task.id)}
