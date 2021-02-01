@@ -1,6 +1,7 @@
-import React from 'react' //import logo from './logo.svg';
+import React , { useEffect } from 'react' //import logo from './logo.svg';
 import './App.css';
 import TaskList from './components/task/TaskList';
+import TimingManage from './components/task/TimingManage';
 import Login from './components/auth/login';
 
 
@@ -59,6 +60,9 @@ export default function App() {
       </header>
       <div>
         <TaskList/>
+      </div>
+      <div>
+        <TimingManage/>
       </div>
     </div>
   )
