@@ -5,8 +5,7 @@ import React, {createContext, useEffect, useState} from
 export const TaskListContext = createContext()
 
 const TaskListContextProvider = props => {
-  const initialState = JSON.parse
-  (localStorage.getItem("tasks")) || [];
+  const initialState = JSON.parse (localStorage.getItem("tasks")) || [];
 
   const[tasks, setTasks] = useState(initialState);
   const[editItem, setEditItem] = useState(null);

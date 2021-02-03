@@ -32,6 +32,7 @@ const Form = () => {
 
     return(
         <form onSubmit={handleSubmit} className="form">
+
             <input
                 onChange={handleChange}
                 value={description}
@@ -41,12 +42,10 @@ const Form = () => {
                 required
             />
             <div className="buttons">
-                <button type="submit" className="btn 
-                add-task-btn">
+                <button type="submit" className="btn btn-primary add-task-btn">
                   {editItem ? 'Edit Task': 'Add Task'}
                 </button>
-                <button onClick={clearList} className="btn 
-                clear-btn">Clear All</button>
+                <button onClick={clearList} className="btn btn-danger clear-btn">Clear All</button>
             </div>
         </form>
 

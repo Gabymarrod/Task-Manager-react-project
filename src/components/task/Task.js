@@ -6,26 +6,26 @@ const Task =({task}) => {
     (TaskListContext)
         
     return (
-        <li className= "list-item" key={task.id}>
-            <span>{task.description}&nbsp;</span>
-            <span><i>{task.status}</i></span>
+        <li className="list-item" key={task.id}>
+            <span className="m5">{task.description}&nbsp;</span>
+            <span className="m5"><i>{task.status}</i></span>
                 
                 <div>
                     <button onClick= {() => removeTask(task.id)}
-                        className="btn-delete task-btn"
+                        className="btn btn-danger"
                         >
-                        <i className= "fas fa-trash-alt"></i>
+                        <i className= "text-white fas fa-trash-alt"></i>
                     </button>
-                    <button onClick= {() => findItem(task.id)} className= "btn-edit task-btn">
+                    <button onClick= {() => findItem(task.id)} className= "btn btn-primary">
                         <i className= "fas fa-pen"></i>
                     </button>
-                    <button className= "btn-start task-btn">
+                    <button className= "btn btn-primary btn-start task-btn">
                         <i className= "fas fa-play"></i>
                     </button>
-                    <button className= "btn-pause task-btn">
+                    <button className= "btn btn-primary btn-pause task-btn">
                         <i className= "fas fa-pause"></i>
                     </button>
-                    <button className= "btn-done task-btn">
+                    <button className= "btn btn-primary btn-done task-btn">
                         <i className= "fas fa-check-circle"></i>
                     </button>
                 </div>
