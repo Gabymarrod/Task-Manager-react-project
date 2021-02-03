@@ -63,7 +63,7 @@ export default function Login(){
         <div>
             <nav className="navbar navbar-light bg-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand">Navbar</a>
+                    <a className="navbar-brand">Task Manager</a>
                     {(!loggedIn)?
                 
                     <form className="d-flex" onSubmit={login} >
