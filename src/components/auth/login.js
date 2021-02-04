@@ -44,7 +44,7 @@ export default function Login(){
             if (Object.hasOwnProperty.call(userList, key)) {
                 const element = userList[key];
                 console.log(element);
-                if((name != "" && name != null)){
+                if((name !== "" && name !== null)){
                     if((element.nick == name)&& (element.pass == pass)){
                         loginPass(element)
 
@@ -72,8 +72,14 @@ export default function Login(){
                         <button className="btn btn-outline-success" type="submit">Login</button>
                     </form>
                     :
-                    <span><b>{ name }: </b>
-                    <button className="btn btn-outline-success" type="submit" onClick={logout}>Logout</button>      
+                    <span> 
+                        <span className="fw-bold mx-5">
+                            <i className="fas fa-user"></i>
+                        </span>
+                        <span className="fw-bold fs-2 mx-5 p-1 text-white bg-primary rounded-circle ">
+                            <b> { name.charAt(0) } </b>
+                        </span> 
+                        <button className="btn btn-success btn-outline-success mx-3 my-auto text-white" type="submit" onClick={logout}>Logout</button>      
                     </span>
                     }      
                 </div>

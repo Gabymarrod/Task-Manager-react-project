@@ -9,16 +9,28 @@ const TaskList = () => {
     return ( 
     /*Show No task when list is empty */
     <div>
-        {tasks.length ? (
-            <ul className="list">
-                {tasks.map((task) => {
-                    return <Task task={task} key={task.id}/>;
-                })}
-            </ul>       
-        ):(
-            <div className="no-task">No Tasks</div>
-        )}
-        
+        <table className="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Duration</th>
+                    <th>Paused</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            {tasks.length ? (
+                <tbody className="">
+                    {tasks.map((task) => {
+                        return (
+                                <Task task={task} key={task.id}/>
+                                );
+                    })}
+                </tbody>       
+            ):(
+                <div className="no-task">No Tasks</div>
+            )}
+        </table>
     </div>
   );
     

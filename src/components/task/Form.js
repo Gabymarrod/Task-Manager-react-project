@@ -30,24 +30,40 @@ const Form = () => {
         }
     }, [editItem]);
 
-    return(
-        <form onSubmit={handleSubmit} className="form">
+return(
+    <form onSubmit={handleSubmit} className="form">
 
-            <input
-                onChange={handleChange}
-                value={description}
-                type="text" 
-                className="task-input"
-                placeholder="Add Task..."
-                required
-            />
-            <div className="buttons">
-                <button type="submit" className="btn btn-primary add-task-btn">
-                  {editItem ? 'Edit Task': 'Add Task'}
-                </button>
-                <button onClick={clearList} className="btn btn-danger clear-btn">Clear All</button>
+        <div className="mb-3 row">
+            <label htmlFor="taskInput" className="col-sm-2 col-form-label text-capitalize fs-3 fw-bold">Task</label>
+            <div className="col-sm-10">
+                <input
+                    id="taskInput"
+                    onChange={handleChange}
+                    value={description}
+                    type="text" 
+                    className="form-control "
+                    aria-label="default input example"
+                    placeholder="Add Task..."
+                    required />
             </div>
-        </form>
+        </div>
+        <div className="mb-3 row">
+            <div className="offset-sm-4 col-sm-4 offset-md-8 col-md-2">
+                <button type="submit" className="btn btn-primary ">
+                    <i className= "fas fa-plus"></i> New Task {/* {editItem ? 'Edit Task': 'Add Task'} */}
+                </button>
+
+            </div>
+            <div className="col-sm-4 col-md-2">
+                <button onClick={clearList} className="btn btn-danger">
+                    <i className= "fas fa-stop"></i> Clear All
+                </button>
+            </div>
+            <div className="col-sm-8">
+
+            </div>
+        </div>
+    </form>
 
     )
 }

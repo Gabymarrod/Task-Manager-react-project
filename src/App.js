@@ -1,4 +1,4 @@
-import React from 'react' //import logo from './logo.svg';
+import React, { useEffect } from 'react' //import logo from './logo.svg';
 import TaskList from './components/task/TaskList';
 import Form from './components/task/Form';
 import TaskListContextProvider from './components/context/TaskListContext';
@@ -21,16 +21,16 @@ const App = () => {
   }
 ]
 
+function loadData(){
+  localStorage.setItem("userList", JSON.stringify(usersList))
+
+}
 //componentDidMount() {
   useEffect(() => {
     loadData()
   }, []);
 //}
 
-function loadData(){
-  localStorage.setItem("userList", JSON.stringify(usersList))
-
-}
 
   return (
     <TaskListContextProvider>
@@ -40,7 +40,7 @@ function loadData(){
         </header>
 
         <div className="">
-          <div className="">
+          <div className="m-5">
              <Form />
              <TaskList/>
           </div>
@@ -50,4 +50,4 @@ function loadData(){
   );
 }
 
-// export default App;
+export default App;
